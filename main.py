@@ -23,7 +23,24 @@ def main():
     print("Welcome to the Math App!!!")
     print("")  # line break
     ### write code to complete this function BELOW here ###
+    die_1_value = app_functions.roll_die()
+    die_2_value = app_functions.roll_die()
+    operation = app_functions.get_question_type()
+    
+    if operation == 'sum':
+        correct_answer = die_1_value + die_2_value
+    elif operation == 'difference':
+        correct_answer = abs(die_1_value - die_2_value)
+    app_functions.print_question(die_1_value,die_2_value,operation)
 
+    given_answer = app_functions.input_answer()
+
+    if given_answer== -1:
+        app_functions.print_error_message()
+    elif given_answer == correct_answer:
+        app_functions.print_congratulations(operation)
+    elif given_answer != correct_answer:
+        app_functions.print_correct_answer(die_1_value,die_2_value,operation)
     ### write code to complete this function ABOVE here ###
     print("")  # line break
     print("Game over!!!")
